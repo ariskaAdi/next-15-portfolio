@@ -6,21 +6,21 @@
 
 const Footer = () => {
   return (
-    <footer className="bg-[#262626] text-white py-10 mt-5 ">
+    <footer className="bg-black text-white py-10 ">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm font-mono uppercase tracking-wide">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm  tracking-wide">
           {/* Column 1 */}
           <div>
             <h3 className="text-lg font-bold mb-4  inline-block">About Us</h3>
             <p className="leading-relaxed">
-              We are a company committed to raw, no-fluff services that get the
-              job done.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque,
+              accusamus!
             </p>
           </div>
 
           {/* Column 2 */}
           <div>
-            <h3 className="text-lg font-bold mb-4 inline-block">Follow Us</h3>
+            <h3 className="text-lg font-bold mb-4 inline-block">Follow Me</h3>
             <div className="flex gap-4">{/* <SocialMedia /> */}</div>
           </div>
 
