@@ -1,6 +1,5 @@
-import React from "react";
-import GetCard from "./Get-Card";
 import { Code2, Component, Database, ShieldCheck } from "lucide-react";
+import ProjectCards from "./Card-Project";
 
 const LatestProject = () => {
   return (
@@ -14,7 +13,7 @@ const LatestProject = () => {
             LATEST PROJECT
           </h2>
           <div className="flex flex-wrap gap-6">
-            <GetCard />
+            <ProjectCards />
           </div>
         </div>
 

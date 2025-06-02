@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 // import { Button } from "@/components/ui/button";
-import { Menu, X, Facebook, Twitter, Linkedin } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import SocialMedia from "./SocialMedia";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -68,15 +69,7 @@ export function Header() {
 
         {/* Desktop Social Icons */}
         <div className="hidden md:flex items-center space-x-8">
-          <a href="#" className="text-sm text-white hover:text-white/80">
-            <Facebook className="h-6 w-6" />
-          </a>
-          <a href="#" className="text-sm text-white hover:text-white/80">
-            <Twitter className="h-6 w-6" />
-          </a>
-          <a href="#" className="text-sm text-white hover:text-white/80">
-            <Linkedin className="h-6 w-6" />
-          </a>
+          <SocialMedia />
         </div>
 
         {/* Mobile Menu Button */}
@@ -127,15 +120,7 @@ export function Header() {
 
           <div className="mt-auto">
             <div className="flex justify-center space-x-6">
-              <a href="#" className="text-white hover:text-white/80">
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-white hover:text-white/80">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-white hover:text-white/80">
-                <Linkedin className="h-5 w-5" />
-              </a>
+              <SocialMedia />
             </div>
           </div>
         </div>

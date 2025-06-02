@@ -1,13 +1,6 @@
-import {
-  Facebook,
-  Linkedin,
-  Mail,
-  Phone,
-  Twitter,
-  Youtube,
-} from "lucide-react";
-import Link from "next/link";
 import React from "react";
+import SocialMedia from "./SocialMedia";
+import { Mail, Phone } from "lucide-react";
 
 const Contact = () => {
   return (
@@ -39,11 +32,7 @@ const Contact = () => {
               <div className="space-y-1">
                 <p className="flex items-center">
                   <Phone className="w-4 h-4 mr-2" />
-                  <span>+1 (123) 800-345-6578</span>
-                </p>
-                <p className="flex items-center">
-                  <Phone className="w-4 h-4 mr-2" />
-                  <span>800 (49) 915 20 52</span>
+                  <span>+62 831-3507-8376</span>
                 </p>
               </div>
             </div>
@@ -53,7 +42,7 @@ const Contact = () => {
               <h3 className="font-semibold text-lg mb-2 text-black">Email</h3>
               <p className="flex items-center">
                 <Mail className="w-4 h-4 mr-2" />
-                <span>hello@email.co</span>
+                <span>ariskaadiprasetyo@gmail.com</span>
               </p>
             </div>
 
@@ -62,20 +51,7 @@ const Contact = () => {
               <h3 className="font-semibold text-lg mb-2 text-black">
                 Find me on
               </h3>
-              <div className="flex space-x-4">
-                <Link href="#" aria-label="Facebook">
-                  <Facebook className="w-5 h-5 text-gray-700 hover:text-black transition-colors" />
-                </Link>
-                <Link href="#" aria-label="Twitter">
-                  <Twitter className="w-5 h-5 text-gray-700 hover:text-black transition-colors" />
-                </Link>
-                <Link href="#" aria-label="LinkedIn">
-                  <Linkedin className="w-5 h-5 text-gray-700 hover:text-black transition-colors" />
-                </Link>
-                <Link href="#" aria-label="YouTube">
-                  <Youtube className="w-5 h-5 text-gray-700 hover:text-black transition-colors" />
-                </Link>
-              </div>
+              <SocialMedia />
             </div>
           </div>
         </div>

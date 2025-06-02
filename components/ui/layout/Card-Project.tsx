@@ -1,61 +1,77 @@
-// app/components/CardProject.tsx
-import { ArrowUpRight } from "lucide-react";
-import { prisma } from "@/lib/prisma";
+// ProjectCards.tsx
+"use client";
+
 import Image from "next/image";
-import { Card } from "../card";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { Card } from "@/components/ui/card"; // adjust import path as needed
 
-type CardProjectProps = {
-  id: string;
-};
+const projects = [
+  {
+    title: "Empowering Local Journalism with Modern Web Technology",
+    description:
+      "A look at how modern frameworks like Next.js, Supabase, Sanity, and Auth.js are redefining how we publish local news faster, securely, and more beautifully",
+    imageUrl: "/blog.png",
+    demoUrl: "https://kepanjenkita.vercel.app/",
+    repoUrl: "",
+  },
+  {
+    title: "Secure Token Airdrop Platform with PostgreSQL",
+    description:
+      "This airdrop token platform securely manages and distributes tokens using PostgreSQL on Vercel to store participant data. It generates unique codes tied to wallet addresses, ensuring accurate and tamper-proof participation. By combining blockchain technology with a reliable database backend, the platform enables seamless, transparent token distribution with high performance and scalability, offering an efficient solution for token airdrops.",
+    imageUrl: "/gromp.png",
+    demoUrl: "https://gromp-airdrop.vercel.app/",
+    repoUrl: "",
+  },
+];
 
-export default async function CardProject({ id }: CardProjectProps) {
-  const project = await prisma.project.findUnique({
-    where: { id },
-  });
-
-  if (!project) return null;
-
+export default function ProjectCards() {
   return (
-    <Card className="border-2 border-black bg-white p-6 w-full sm:w-[300px] md:w-[320px]">
-      {/* Header Section */}
-      <div className="flex items-start justify-between mb-4">
-        <h1 className="text-xl font-bold tracking-tight text-black line-clamp-2">
-          {project.title}
-        </h1>
-        {(project.demoUrl || project.repoUrl) && (
-          <Link
-            href={project.demoUrl ?? project.repoUrl!}
-            target="_blank"
-            rel="noopener noreferrer">
-            <ArrowUpRight className="w-8 h-8 text-black" strokeWidth={2} />
-          </Link>
-        )}
-      </div>
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+      {projects.map((project, index) => (
+        <Card
+          key={index}
+          className="border-2 border-black bg-white p-6 w-full sm:w-[300px] md:w-[320px]">
+          {/* Header */}
+          <div className="flex items-start justify-between mb-2">
+            <h1 className="text-xl font-bold tracking-tight text-black line-clamp-2">
+              {project.title}
+            </h1>
+            {(project.demoUrl || project.repoUrl) && (
+              <Link
+                href={project.demoUrl || project.repoUrl}
+                target="_blank"
+                rel="noopener noreferrer">
+                <ArrowUpRight className="w-8 h-8 text-black" strokeWidth={2} />
+              </Link>
+            )}
+          </div>
 
-      {/* Divider Line */}
-      <div className="w-full h-px bg-gray-300 mb-4"></div>
+          {/* Divider */}
+          <div className="w-full h-px bg-gray-300 mb-2" />
 
-      {/* Content Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-        {/* Image Section */}
-        <div className="aspect-square">
-          <Image
-            src={project.imageUrl}
-            alt={project.title}
-            width={500}
-            height={500}
-            className="w-full h-full object-cover rounded-sm"
-          />
-        </div>
+          {/* Content */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+            {/* Image */}
+            <div className="aspect-square">
+              <Image
+                src={project.imageUrl}
+                alt={project.title}
+                width={500}
+                height={500}
+                className="w-full h-full object-cover rounded-sm"
+              />
+            </div>
 
-        {/* Text Content */}
-        <div className="space-y-6">
-          <p className="text-xs font-medium text-black leading-relaxed line-clamp-6">
-            {project.description}
-          </p>
-        </div>
-      </div>
-    </Card>
+            {/* Description */}
+            <div className="space-y-6">
+              <p className="text-xs font-medium text-black leading-relaxed line-clamp-6">
+                {project.description}
+              </p>
+            </div>
+          </div>
+        </Card>
+      ))}
+    </div>
   );
 }
